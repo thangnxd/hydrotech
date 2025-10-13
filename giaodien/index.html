@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Hydrotech</title>
+</head>
+<body>
+    <header> 
+        <div class="logo">
+            <img src="images/logo.png" alt="ảnh logo" width=70%>
+        </div>
+
+        <div class="menu">
+            <li><a href="">GIỚI THIỆU</a>
+                <ul class="sub-menu">
+                    <li><a href="">Về chúng tôi</a></li> 
+                    <li><a href="">Tầm nhìn, sứ mệnh</a></li>
+                    
+                </ul>
+            </li>
+                
+            <li><a href="">DANH MỤC SẢN PHẨM</a>
+                <ul class="sub-menu">
+                    <li><a href="">Máy lọc nước ion kiềm</a>
+                        <ul>
+                            <li><a href="">Sankaqua</a></li>
+                            <li><a href="">Emaxx</a></li>
+                            <li><a href="">Aquashi</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="">Lõi lọc</a>
+                        <ul>
+                            <li><a href="">Lõi RO</a></li>
+                            <li><a href="">Lõi chức năng</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li><a href="">KHUYẾN MÃI</a></li>
+            <li><a href="">DỊCH VỤ</a>
+                <ul class="sub-menu"> 
+                    <li><a href="">Lắp đặt máy lọc nước</a></li>
+                    <li><a href="">Thay thế lõi</a></li>
+                    <li><a href="">Thay tấm điện cực</a></li>
+                </ul>
+            </li>
+
+            <li><a href="">LIÊN HỆ</a></li>
+        </div>
+
+        <div class="other">
+            <li><input placeholder="tìm kiếm" type="text" > <i class="fa-solid fa-magnifying-glass"></i></li>
+            <li><i class="fa-solid fa-user"></i></li>
+            <li><i class="fa-solid fa-cart-shopping"></i></li>
+
+            
+
+
+        </div>
+    </header>
+
+
+
+    <section id="Slider" >
+        <div class="aspect-ratio-169">
+            <img src="images/slide5.png">
+            <img src="images/slide1.png">
+            <img src="images/slide2.png">
+            <img src="images/slide4.png">
+            
+
+
+        </div>
+        <div class = "dot-container">
+            <div class = "dot active"></div>
+            <div class = "dot"></div>
+            <div class = "dot"></div>
+            <div class = "dot"></div>
+            
+            
+
+        </div>
+    </section>
+<!-----------------------footer----------------------------------------------------------------------------------------------->
+<div class = "footer-top">
+    <li><a href=""><img src="images/dathongbao.png"></a></li>
+    <li><a href="">Liên hệ</a></li>
+    <li><a href="">Tuyển dụng</a></li>
+    <li><a href="">Giới thiệu</a></li>
+    <li>
+        <a href=""> <i class="fa-brands fa-facebook-f"></i></a>
+        <a href=""><i class="fa-brands fa-tiktok"></i></a>
+        <a href=""><i class="fa-brands fa-youtube"></i></a>
+    </li>
+</div>
+<div class = "footer-center">
+    <p> Công ty TNHH Hydrotech <br>
+    Địa chỉ đăng ký: Tổ dân phố số 4, Đường Thạch Bàn, Long Biên, Hà Nội <br>
+    Sđt tư vấn: <b> 0382894235</b>
+    </p>
+</div>
+
+<div class = "footer-bottom">
+    @Hydrotech All right reversed
+</div>
+</body>
+<script>
+    const header = document.querySelector("header")
+    window.addEventListener("scroll", function(){
+        x = window.pageYOffset
+        if (x>0){
+            header.classList.add("sticky")
+        }
+        else{
+            header.classList.remove("sticky")
+        }
+    })
+
+
+
+
+
+
+    const imgPosition = document.querySelectorAll(".aspect-ratio-169 img")
+    const imgContainer = document.querySelector(".aspect-ratio-169")
+    const dotItem = document.querySelectorAll(".dot")
+    let imgNumber = imgPosition.length
+    let index = 0
+    //console.log(imgPosition)
+    imgPosition.forEach(function(image,index){
+        image.style.left = index*100 + "%"
+        dotItem[index].addEventListener("click",function(){
+            slider(index)
+        })
+    })
+
+    function imgSlide(){
+        index++;
+        if (index >= imgNumber) {index = 0}
+        slider(index)
+    }
+
+    function slider (index){
+        imgContainer.style.left = "-" + index*100 + "%"
+        const dotActive = document.querySelector(".active")
+        dotActive.classList.remove("active")
+        dotItem[index].classList.add("active")
+    }
+
+    setInterval(imgSlide, 5000)
+</script>
+</html>
